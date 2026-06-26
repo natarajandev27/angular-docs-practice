@@ -3,3 +3,8 @@
     background: yellow;
     border: 2px solid black;
 }
+:host-context(.dark-theme) {
+    background: black;
+    color: white;
+    box-shadow:  0px 10px 15px rgba(0, 0, 0, 0.1);
+}
