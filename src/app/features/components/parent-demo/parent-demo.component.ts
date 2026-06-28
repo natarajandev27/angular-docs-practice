@@ -11,4 +11,9 @@ import { UserCardComponent } from '../user-card/user-card.component';
 export class ParentDemoComponent {
   name = "Natarajan";
   age = 30;
+  message = '';
+
+  welcomeMessage(greeting: string) {
+    this.message = greeting;
+  }
 }

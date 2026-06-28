@@ -1,2 +1,7 @@
 <p>parent-demo works!</p>
-<app-user-card [name]="undefined" [age]="age"></app-user-card>
+<app-user-card
+  [name]="name"
+  [age]="age"
+  (greetings)="welcomeMessage($event)"
+></app-user-card>
+<p>{{ message }}</p>
