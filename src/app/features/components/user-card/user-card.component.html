@@ -7,3 +7,7 @@
   <button (click)="toggleExpand()">Toggle Expand</button>
   <button (click)="sendGreetings()">Send greetings</button>
 </div>
+<div>
+  <ng-content select=".title">Title</ng-content>
+  <ng-content />
+</div>

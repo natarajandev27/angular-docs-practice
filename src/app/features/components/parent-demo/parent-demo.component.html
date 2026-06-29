@@ -1,7 +1,6 @@
 <p>parent-demo works!</p>
-<app-user-card
-  [name]="name"
-  [age]="age"
-  (greetings)="welcomeMessage($event)"
-></app-user-card>
+<app-user-card [name]="name" [age]="age" (greetings)="welcomeMessage($event)">
+  <!-- <h1 class="title">Content Projection</h1> -->
+  <p>This is the content</p>
+</app-user-card>
 <p>{{ message }}</p>
