@@ -5,11 +5,10 @@ import { HighlightBoxComponent } from './features/components/highlight-box/highl
 import { ParentDemoComponent } from './features/components/parent-demo/parent-demo.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [ProfilePhotoComponent, HighlightBoxComponent, ParentDemoComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+    selector: 'app-root',
+    imports: [ProfilePhotoComponent, HighlightBoxComponent, ParentDemoComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'angular-docs-practice';

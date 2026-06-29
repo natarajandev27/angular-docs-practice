@@ -1,11 +1,10 @@
 import { Component, computed, EventEmitter, Input, input, Output, signal } from '@angular/core';
 
 @Component({
-  selector: 'app-user-card',
-  standalone: true,
-  imports: [],
-  templateUrl: './user-card.component.html',
-  styleUrl: './user-card.component.css',
+    selector: 'app-user-card',
+    imports: [],
+    templateUrl: './user-card.component.html',
+    styleUrl: './user-card.component.css'
 })
 export class UserCardComponent {
   name = input('', { transform: this.transformName });
