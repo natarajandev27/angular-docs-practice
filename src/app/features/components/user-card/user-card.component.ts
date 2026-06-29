@@ -1,10 +1,18 @@
-import { Component, computed, EventEmitter, Input, input, Output, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  Input,
+  input,
+  Output,
+  signal,
+} from '@angular/core';
 
 @Component({
-    selector: 'app-user-card',
-    imports: [],
-    templateUrl: './user-card.component.html',
-    styleUrl: './user-card.component.css'
+  selector: 'app-user-card',
+  imports: [],
+  templateUrl: './user-card.component.html',
+  styleUrl: './user-card.component.css',
 })
 export class UserCardComponent {
   name = input('', { transform: this.transformName });
@@ -13,7 +21,6 @@ export class UserCardComponent {
   isExpanded = signal(false);
 
   @Output() greetings = new EventEmitter<string>();
-  
 
   toggleExpand() {
     this.isExpanded.update((v) => !v);
