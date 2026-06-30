@@ -5,5 +5,17 @@
 </app-user-card>
 <p>{{ message }}</p>
 <app-host-demo />
-<app-lifecycle-demo [name]="name" />
-<button (click)="changeName()">Change Name</button>
+
+<div>
+  <h2>Lifecycle Hooks Demo</h2>
+  <app-lifecycle-demo [name]="name" />
+  <button (click)="changeName()">Change Name</button>
+</div>
+
+<div>
+  <h2>Query Demo</h2>
+  <app-custom-card></app-custom-card>
+  <app-box>
+    <app-star />
+  </app-box>
+</div>

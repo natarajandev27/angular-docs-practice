@@ -11,7 +11,6 @@ import { CustomCardComponent } from './features/components/custom-card/custom-ca
     ProfilePhotoComponent,
     HighlightBoxComponent,
     ParentDemoComponent,
-    CustomCardComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
