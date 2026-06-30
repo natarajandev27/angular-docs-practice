@@ -33,14 +33,14 @@ export class LifecycleDemoComponent implements OnInit, OnChanges {
   ngOnInit() {
     console.log('ngOnInit - Name:' + this.name);
 
-    this.timerSubscription = interval(1000).subscribe((count) => {
-      this.timer = count;
-      // console.log('Timer:' + this.timer);
-    });
+    // this.timerSubscription = interval(1000).subscribe((count) => {
+    //   this.timer = count;
+    //   // console.log('Timer:' + this.timer);
+    // });
   }
 
-  ngOnDestroy() {
-    this.timerSubscription.unsubscribe();
-    console.log('Timer unsubscribed');
-  }
+  // ngOnDestroy() {
+  //   this.timerSubscription.unsubscribe();
+  //   console.log('Timer unsubscribed');
+  // }
 }
