@@ -8,6 +8,6 @@ import { StarComponent } from '../star/star.component';
   styleUrl: './box.component.css',
 })
 export class BoxComponent {
-  star = contentChild(StarComponent);
+  star = contentChild(StarComponent, { descendants: false });
   starMessage = computed(() => this.star()?.message);
 }
