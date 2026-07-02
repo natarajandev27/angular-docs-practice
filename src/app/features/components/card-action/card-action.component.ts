@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card-action',
@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './card-action.component.html',
   styleUrl: './card-action.component.css',
 })
-export class CardActionComponent {
- text = "Action Text";
+export class CardActionComponent implements OnInit {
+  text = 'Action Text';
+
+  ngOnInit() {
+    console.log('Base Class');
+  }
 }

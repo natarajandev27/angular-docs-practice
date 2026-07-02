@@ -10,6 +10,7 @@ import { LifecycleDemoComponent } from '../lifecycle-demo/lifecycle-demo.compone
 import { CustomCardComponent } from '../custom-card/custom-card.component';
 import { BoxComponent } from '../box/box.component';
 import { StarComponent } from '../star/star.component';
+import { SpecialCardActionComponent } from '../special-card-action/special-card-action.component';
 
 @Component({
   selector: 'app-parent-demo',
@@ -20,6 +21,7 @@ import { StarComponent } from '../star/star.component';
     CustomCardComponent,
     BoxComponent,
     StarComponent,
+    SpecialCardActionComponent,
   ],
   templateUrl: './parent-demo.component.html',
   styleUrl: './parent-demo.component.css',
