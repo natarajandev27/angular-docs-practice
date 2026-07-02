@@ -6,12 +6,11 @@
     <app-card-header>Visit Chennai!</app-card-header>
   } -->
 
-  
   <app-card-header>Visit Chennai!</app-card-header>
-  <p>Header text: {{ headerText() }}</p>
+  <p>Header text: {{ headerText }}</p>
 
-  <app-card-action #save>Save</app-card-action>
+  <app-card-action #save>Save</app-card-action><br /><br />
   <app-card-action>Cancel</app-card-action>
-  <p>Action text:{{ actionTexts() }}</p>
-  <p>asdf{{ actionText() }}</p>
+  <p>Action text: {{ actionTexts }}</p>
+  <p>Query option: {{ actionText() }}</p>
 </div>
