@@ -11,6 +11,8 @@ import { CustomCardComponent } from '../custom-card/custom-card.component';
 import { BoxComponent } from '../box/box.component';
 import { StarComponent } from '../star/star.component';
 import { SpecialCardActionComponent } from '../special-card-action/special-card-action.component';
+import { CustomDialogComponent } from '../custom-dialog/custom-dialog.component';
+import { NotifyButtonComponent } from "../notify-button/notify-button.component";
 
 @Component({
   selector: 'app-parent-demo',
@@ -22,7 +24,9 @@ import { SpecialCardActionComponent } from '../special-card-action/special-card-
     BoxComponent,
     StarComponent,
     SpecialCardActionComponent,
-  ],
+    CustomDialogComponent,
+    NotifyButtonComponent
+],
   templateUrl: './parent-demo.component.html',
   styleUrl: './parent-demo.component.css',
 })
@@ -31,6 +35,7 @@ export class ParentDemoComponent {
   age = 30;
   message = '';
   inputRef = viewChild('input', { read: ElementRef });
+  isAdmin = false;
 
   constructor() {
     afterNextRender(() => {
@@ -44,5 +49,9 @@ export class ParentDemoComponent {
 
   changeName() {
     this.name = 'Sailachu';
+  }
+
+  onToggle() {
+    this.isAdmin = !this.isAdmin;
   }
 }

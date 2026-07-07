@@ -1,0 +1,5 @@
+<h3>Custom Dialog Component</h3>
+<p>Profile for {{ username() }}</p>
+<ng-container
+  *ngComponentOutlet="getBioComponent(); inputs: userInputs()"
+></ng-container>

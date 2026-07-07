@@ -18,7 +18,7 @@
   <app-box>
     <app-star />
     <div>
-      <app-star />      
+      <app-star />
     </div>
   </app-box>
 </div>
@@ -26,10 +26,21 @@
 <div>
   <h2>Dom API Demo</h2>
   <label for="name">Name:</label>
-  <input #input type="text" id="name"/>
+  <input #input type="text" id="name" />
 </div>
 
 <div>
   <h2>Inheritance Demo</h2>
   <app-special-card-action></app-special-card-action>
+</div>
+
+<div>
+  <h2>NgComponentOutlet</h2>
+  <app-custom-dialog [username]="name" [isAdmin]="isAdmin"></app-custom-dialog>
+  <button (click)="onToggle()">Toggle</button>
+</div>
+
+<div>
+  <h2>View Container Demo</h2>
+  <app-notify-button></app-notify-button>
 </div>
