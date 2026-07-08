@@ -1,0 +1,18 @@
+<h2>Signals Demo</h2>
+<p>Count is: {{ count() }}</p>
+<p>Double Count: {{ doubleCount() }}</p>
+<p>Double Count Again: {{ doubleCount() }}</p>
+<button (click)="increment()">Increment</button><br /><br />
+
+<p>Conditional: {{ conditionalValue() }}</p>
+<button (click)="showDouble.set(!showDouble())">Toggle</button>
+
+<!-- Reactive Context -->
+<h3>Reactive Context</h3>
+<p>Watched: {{ watchedRead() }}</p>
+<button (click)="unwatchedRead()">Call Unwatched Method</button>
+<button (click)="increment()">Increment</button>
+
+<p>Track test: {{ trackTest() }}</p>
+<button (click)="other.set(other() + 1)">Change Other</button>
+<button (click)="increment()">Increment</button>
