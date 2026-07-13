@@ -5,6 +5,7 @@ import { HighlightBoxComponent } from './features/components/highlight-box/highl
 import { ParentDemoComponent } from './features/components/parent-demo/parent-demo.component';
 import { CustomCardComponent } from './features/components/custom-card/custom-card.component';
 import { SignalsDemoComponent } from "./features/signals/signals-demo/signals-demo.component";
+import { BindingDemoComponent } from "./features/templates/binding-demo/binding-demo.component";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { SignalsDemoComponent } from "./features/signals/signals-demo/signals-de
     ProfilePhotoComponent,
     HighlightBoxComponent,
     // ParentDemoComponent,
-    SignalsDemoComponent
+    SignalsDemoComponent,
+    BindingDemoComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

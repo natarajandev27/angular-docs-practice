@@ -1,0 +1,9 @@
+<h2>Templates Demo</h2>
+<p>Interpolation: {{ firstName() }}</p>
+<p>Property binding:</p>
+<button [disabled]="isDisabled()">Save</button>
+<ul [attr.role]="menuRole()">
+  Attribute Binding
+</ul>
+<img src="profile-photo.jpg" alt="Profile photo of {{ firstName() }}" />
+<p [class.isActive]="isActive()">Class Binding</p>
