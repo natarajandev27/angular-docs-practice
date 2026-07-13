@@ -3,6 +3,7 @@ import {
   computed,
   effect,
   inject,
+  linkedSignal,
   signal,
   untracked,
 } from '@angular/core';
@@ -32,16 +33,17 @@ export class SignalsDemoComponent {
   }
 
   celsius = signal(0);
-   fahrenheit = this.celsius() * 9/5 + 32;
-  //Effects
+  fahrenheit = (this.celsius() * 9) / 5 + 32;
+
+  /*Effects*/
   constructor() {
     effect(() => {
       console.log('Effect ran| count:' + this.count());
-      console.log('Temp changed: X°C = Y°F')
+      console.log('Temp changed: X°C = Y°F');
     });
   }
 
-  //Reactive Context
+  /*Reactive Context*/
   watchedRead = computed(() => {
     // console.log('Watch zone ran, count = ' + this.count());
     return this.count();
@@ -52,7 +54,7 @@ export class SignalsDemoComponent {
     return this.count();
   }
 
-  //Untracked
+  /*Untracked*/
   other = signal(100);
 
   trackTest = computed(() => {
@@ -62,5 +64,25 @@ export class SignalsDemoComponent {
     return c + o;
   });
 
-  
+  /*Linked Signals*/
+  currentQuiz = signal('Math Quiz');
+  score = linkedSignal(() => {
+    this.currentQuiz();
+    return 0;
+  });
+
+  /*Linked Signals - Previous State*/
+  questions = signal([
+    { id: 0, text: 'Q-Ground' },
+    { id: 1, text: 'Q-Air' },
+    { id: 2, text: 'Q-Sea' },
+  ]);
+  selectedQ = linkedSignal<
+    { id: number; text: string }[],
+    { id: number; text: string }
+  >({
+    source: this.questions,
+    computation: (newQs, previous) =>
+      newQs.find((q) => q.id === previous?.value.id) ?? newQs[0],
+  });
 }

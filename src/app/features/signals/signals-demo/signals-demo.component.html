@@ -16,3 +16,35 @@
 <p>Track test: {{ trackTest() }}</p>
 <button (click)="other.set(other() + 1)">Change Other</button>
 <button (click)="increment()">Increment</button>
+
+<!-- Linked List -->
+<h3>Linked Signal</h3>
+<p>Quiz: {{ currentQuiz() }}</p>
+<p>Score: {{ score() }}</p>
+<button (click)="score.set(score() + 10)">+10 points</button>
+<button (click)="currentQuiz.set('Science quiz')">Switch quiz</button>
+
+<!-- Linked List - Previous State -->
+<p>Selected: {{ selectedQ().text }}</p>
+<button (click)="selectedQ.set(questions()[2])">Pick Sea (id:2)</button>
+<button
+  (click)="
+    questions.set([
+      { id: 0, text: 'Email' },
+      { id: 1, text: 'Sea-NEW' },
+      { id: 2, text: 'Postal' },
+    ])
+  "
+>
+  Change (keeps id:2)
+</button>
+<button
+  (click)="
+    questions.set([
+      { id: 5, text: 'X' },
+      { id: 6, text: 'Y' },
+    ])
+  "
+>
+  Change (removes id:2)
+</button>
