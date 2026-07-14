@@ -14,5 +14,55 @@
 <button (click)="toggle()">Toggle Button</button>
 <button (click)="buttonClasses().highlighted = false">Mutate</button>
 <button (click)="buttonClasses.set({ highlighted: false, disabled: true })">
-  Replace
-</button>
+  Replace</button
+><br /><br />
+
+<!-- For Blocks -->
+@for (item of items(); track $index; let i = $index, first = $first) {
+  <p>#{{ i }} - {{ item.name }} {{ first ? "⭐first" : "" }}</p>
+  <input placeholder="type here" />
+} @empty {
+  <p>No items</p>
+}
+<button (click)="addTop()">Add to top</button>
+
+<!-- If Blocks -->
+@if (score() >= 90) {
+  <p>Grade: A</p>
+} @else if (score() >= 70) {
+  <p>Grade: B</p>
+} @else if (score() >= 50) {
+  <p>Grade: C</p>
+} @else {
+  <p>Grade: Fail</p>
+}
+
+<button (click)="setScore(95)">95</button>
+<button (click)="setScore(75)">75</button>
+<button (click)="setScore(55)">55</button>
+<button (click)="setScore(30)">30</button>
+
+@if (user(); as u) {
+  <p>Name: {{ u.name }}</p>
+  <p>Email: {{ u.email }}</p>
+}
+
+<!-- Switch block -->
+@switch (status()) {
+  @case ("loading") {
+    <p>⏳ Loading...</p>
+  }
+  @case ("success") {
+    <p>✅ Success!</p>
+  }
+  @case ("error") {
+    <p>❌ Error</p>
+  }
+  @default {
+    <p>Unknown</p>
+  }
+}
+
+<<button (click)="setStatus('loading')">Loading</button>
+<button (click)="setStatus('success')">Success</button>
+<button (click)="setStatus('error')">Error</button>>

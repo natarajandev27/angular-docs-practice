@@ -22,4 +22,31 @@ export class BindingDemoComponent {
   toggle() {
     console.log('Toggle button is clicked!');
   }
+
+  /*For block*/
+  items = signal([
+    { id: 0, name: 'Ground' },
+    { id: 0, name: 'Air' },
+    { id: 0, name: 'Sea' },
+  ]);
+
+  addTop() {
+    this.items.update((list) => [{ id: Date.now(), name: 'NEW' }, ...list]);
+  }
+
+  /*If block*/
+  score = signal(75);
+
+  setScore(n: number) {
+    this.score.set(n);
+  }
+
+  user = signal({ name: 'Natarajan', email: 'natarajan@gmail.com' });
+
+  /*Switch block*/
+  status = signal<'loading' | 'success' | 'error'>('loading');
+
+  setStatus(s: 'loading' | 'success' | 'error') {
+    this.status.set(s);
+  }
 }

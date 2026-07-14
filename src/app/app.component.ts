@@ -13,7 +13,7 @@ import { BindingDemoComponent } from "./features/templates/binding-demo/binding-
     ProfilePhotoComponent,
     HighlightBoxComponent,
     // ParentDemoComponent,
-    SignalsDemoComponent,
+    // SignalsDemoComponent,
     BindingDemoComponent
 ],
   templateUrl: './app.component.html',
