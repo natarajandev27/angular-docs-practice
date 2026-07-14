@@ -11,4 +11,15 @@ export class BindingDemoComponent {
   isDisabled = signal(true);
   menuRole = signal('admin');
   isActive = signal(false);
+  buttonClasses = signal({ highlighted: true, disabled: true });
+  heightPx = signal('50');
+  styles = signal({
+    border: '1px solid black',
+    'font-weight': 'bold',
+  });
+  actionLabel = signal('Action');
+
+  toggle() {
+    console.log('Toggle button is clicked!');
+  }
 }

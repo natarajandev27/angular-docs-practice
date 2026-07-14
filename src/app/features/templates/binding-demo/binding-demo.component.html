@@ -7,3 +7,12 @@
 </ul>
 <img src="profile-photo.jpg" alt="Profile photo of {{ firstName() }}" />
 <p [class.isActive]="isActive()">Class Binding</p>
+<button [class]="buttonClasses()">Object Class</button>
+<section [style.height.px]="heightPx()">Style Unit Binding</section>
+<section [style]="styles()">Style Object Binding</section>
+<button [aria-label]="actionLabel()">{{ actionLabel() }}</button>
+<button (click)="toggle()">Toggle Button</button>
+<button (click)="buttonClasses().highlighted = false">Mutate</button>
+<button (click)="buttonClasses.set({ highlighted: false, disabled: true })">
+  Replace
+</button>
