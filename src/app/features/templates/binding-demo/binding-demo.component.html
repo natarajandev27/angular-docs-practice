@@ -63,6 +63,11 @@
   }
 }
 
-<<button (click)="setStatus('loading')">Loading</button>
+<button (click)="setStatus('loading')">Loading</button>
 <button (click)="setStatus('success')">Success</button>
-<button (click)="setStatus('error')">Error</button>>
+<button (click)="setStatus('error')">Error</button>
+
+<!-- Two way binding -->
+<input type="text" [(ngModel)]="name" />
+<p>Name: {{ name() }}</p>
+<button (click)="name.set('Reset')">Reset</button>

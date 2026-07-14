@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-binding-demo',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './binding-demo.component.html',
   styleUrl: './binding-demo.component.css',
 })
@@ -49,4 +50,7 @@ export class BindingDemoComponent {
   setStatus(s: 'loading' | 'success' | 'error') {
     this.status.set(s);
   }
+
+  /*Two way binding*/
+  name = signal('Natarajan');
 }
