@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { PipesComponent } from "../pipes/pipes.component";
+import { PipesComponent } from '../pipes/pipes.component';
+import { BaseButtonComponent } from '../base-button/base-button.component';
 
 @Component({
   selector: 'app-binding-demo',
-  imports: [FormsModule, PipesComponent],
+  imports: [FormsModule, PipesComponent, BaseButtonComponent],
   templateUrl: './binding-demo.component.html',
   styleUrl: './binding-demo.component.css',
 })

@@ -48,10 +48,8 @@ Key lesson: Hold the contradiction, extract ground truth (log the actual values)
 
 ---
 
-<!-- TEMPLATE for new entries:
+July 15 - Empty content projection (missing ng-content)
 
-## [Date] — [Short title / error code]
-- **What broke:**
-- **Why:**
-- **Fix:**
-- **Connects to:** (optional — which past bug does this echo?)
+- What broke: <button app-base-button>Next</button> rendered nothing inside
+- Why: the component's template had no <ng-content /> — no slot for the parent's content to land in
+- Fix: added <ng-content /> to the component template
