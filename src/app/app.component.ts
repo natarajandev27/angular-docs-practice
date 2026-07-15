@@ -4,18 +4,18 @@ import { ProfilePhotoComponent } from './features/components/profile-photo/profi
 import { HighlightBoxComponent } from './features/components/highlight-box/highlight-box.component';
 import { ParentDemoComponent } from './features/components/parent-demo/parent-demo.component';
 import { CustomCardComponent } from './features/components/custom-card/custom-card.component';
-import { SignalsDemoComponent } from "./features/signals/signals-demo/signals-demo.component";
-import { BindingDemoComponent } from "./features/templates/binding-demo/binding-demo.component";
+import { SignalsDemoComponent } from './features/signals/signals-demo/signals-demo.component';
+import { BindingDemoComponent } from './features/templates/binding-demo/binding-demo.component';
 
 @Component({
   selector: 'app-root',
   imports: [
-    ProfilePhotoComponent,
-    HighlightBoxComponent,
+    // ProfilePhotoComponent,
+    // HighlightBoxComponent,
     // ParentDemoComponent,
     // SignalsDemoComponent,
-    BindingDemoComponent
-],
+    BindingDemoComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

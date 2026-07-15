@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { PipesComponent } from "../pipes/pipes.component";
 
 @Component({
   selector: 'app-binding-demo',
-  imports: [FormsModule],
+  imports: [FormsModule, PipesComponent],
   templateUrl: './binding-demo.component.html',
   styleUrl: './binding-demo.component.css',
 })

@@ -1,4 +1,4 @@
-<h2>Templates Demo</h2>
+<!-- <h2>Templates Demo</h2>
 <p>Interpolation: {{ firstName() }}</p>
 <p>Property binding:</p>
 <button [disabled]="isDisabled()">Save</button>
@@ -15,19 +15,19 @@
 <button (click)="buttonClasses().highlighted = false">Mutate</button>
 <button (click)="buttonClasses.set({ highlighted: false, disabled: true })">
   Replace</button
-><br /><br />
+><br /><br /> -->
 
 <!-- For Blocks -->
-@for (item of items(); track $index; let i = $index, first = $first) {
+<!-- @for (item of items(); track $index; let i = $index, first = $first) {
   <p>#{{ i }} - {{ item.name }} {{ first ? "⭐first" : "" }}</p>
   <input placeholder="type here" />
 } @empty {
   <p>No items</p>
 }
-<button (click)="addTop()">Add to top</button>
+<button (click)="addTop()">Add to top</button> -->
 
 <!-- If Blocks -->
-@if (score() >= 90) {
+<!-- @if (score() >= 90) {
   <p>Grade: A</p>
 } @else if (score() >= 70) {
   <p>Grade: B</p>
@@ -45,10 +45,10 @@
 @if (user(); as u) {
   <p>Name: {{ u.name }}</p>
   <p>Email: {{ u.email }}</p>
-}
+} -->
 
 <!-- Switch block -->
-@switch (status()) {
+<!-- @switch (status()) {
   @case ("loading") {
     <p>⏳ Loading...</p>
   }
@@ -65,9 +65,12 @@
 
 <button (click)="setStatus('loading')">Loading</button>
 <button (click)="setStatus('success')">Success</button>
-<button (click)="setStatus('error')">Error</button>
+<button (click)="setStatus('error')">Error</button> -->
 
 <!-- Two way binding -->
-<input type="text" [(ngModel)]="name" />
+<!-- <input type="text" [(ngModel)]="name" />
 <p>Name: {{ name() }}</p>
-<button (click)="name.set('Reset')">Reset</button>
+<button (click)="name.set('Reset')">Reset</button> -->
+
+<!-- Pipes -->
+<app-pipes></app-pipes>

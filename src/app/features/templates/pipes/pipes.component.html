@@ -1,0 +1,17 @@
+<h2>Pipes</h2>
+<p>Purchases from {{ company | titlecase }} on {{ purchasedOn | date }}</p>
+<p>Total: {{ amount | currency: "INR" }}</p>
+<p>Purchased by: {{ name | uppercase }}</p>
+<p>{{ purchasedOn | date: "medium" }}</p>
+<p>{{ purchasedOn | date: "yyyy-MM-dd" }}</p>
+<p>{{ user | json }}</p>
+<p>{{ name | uppercase | slice: 0 : 3 }}</p>
+
+<!-- Custom Pipes -->
+<p>{{ longText | truncate }}</p>
+<p>{{ longText | truncate: 10 }}</p>
+
+<!-- Pure and Impure pipes -->
+<p>{{ items | listJoin }}</p>
+<button (click)="mutate()">Mutate</button>
+<button (click)="replace()">Replace</button>
