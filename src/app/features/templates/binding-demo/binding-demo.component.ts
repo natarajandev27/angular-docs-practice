@@ -2,10 +2,20 @@ import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PipesComponent } from '../pipes/pipes.component';
 import { BaseButtonComponent } from '../base-button/base-button.component';
+import { FragRendererComponent } from '../frag-renderer/frag-renderer.component';
+import { NgTemplateOutlet } from '@angular/common';
+import { HeavyWidgetComponent } from "../heavy-widget/heavy-widget.component";
 
 @Component({
   selector: 'app-binding-demo',
-  imports: [FormsModule, PipesComponent, BaseButtonComponent],
+  imports: [
+    FormsModule,
+    // PipesComponent,
+    // BaseButtonComponent,
+    // FragRendererComponent,y
+    NgTemplateOutlet,
+    HeavyWidgetComponent
+],
   templateUrl: './binding-demo.component.html',
   styleUrl: './binding-demo.component.css',
 })
@@ -55,4 +65,8 @@ export class BindingDemoComponent {
 
   /*Two way binding*/
   name = signal('Natarajan');
+
+  // Variables
+  price = signal(100);
+  quantity = signal(3);
 }

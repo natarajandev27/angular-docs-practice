@@ -73,5 +73,38 @@
 <button (click)="name.set('Reset')">Reset</button> -->
 
 <!-- Pipes -->
-<app-pipes></app-pipes>
-<button app-base-button>Next <span class="icon arrow-right"></span></button>
+<!-- <app-pipes></app-pipes>
+<button app-base-button>Next <span class="icon arrow-right"></span></button> -->
+
+<!-- Ng-Template -->
+<p>This is normal — you WILL see this</p>
+
+<ng-template #myFragment let-namee let-age="age">
+  <p>{{ namee }} is {{ age }} years old</p>
+</ng-template>
+
+<ng-container
+  *ngTemplateOutlet="myFragment; context: { $implicit: 'Natarajan', age: 30 }"
+>
+</ng-container>
+
+<ng-container *ngTemplateOutlet="myFragment"></ng-container>
+
+<!-- Variables -->
+@let total = price() * quantity();
+<p>Price: {{ price() }} and the quantity is {{ quantity() }}</p>
+<p>Total: {{ total }}</p>
+<button (click)="quantity.set(quantity() + 1)">Add one quantity</button>
+
+<!-- Defer -->
+<div style="height: 1500px; background: #eee">
+  Scroll down to see the deferred widget ↓
+</div>
+
+@defer (on viewport) {
+  <app-heavy-widget />
+} @placeholder {
+  <div>Widget placeholder — not loaded yet</div>
+} @loading (minimum 500ms) {
+  <div>Loading widget...</div>
+}
