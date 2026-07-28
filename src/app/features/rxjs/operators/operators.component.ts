@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import {
   concatMap,
+  debounceTime,
   delay,
+  distinctUntilChanged,
   exhaustMap,
   map,
   mergeMap,
@@ -18,41 +20,43 @@ import {
   styleUrl: './operators.component.css',
 })
 export class OperatorsComponent {
-  // serachTerms$ = new Subject<string>();
-
-  // constructor() {
-  //   this.serachTerms$
-  //     .pipe(
-  //       concatMap((term) => {
-  //         console.log('Starting fake API call for:', term);
-  //         const randomDelay = Math.floor(Math.random() * 1500) + 200; // random 200-1700ms
-  //         return of(`Result for "${term}"`).pipe(delay(randomDelay));
-  //       }),
-  //     )
-  //     .subscribe((result) => console.log('Got:', result));
-  // }
-
-  // onType(event: Event) {
-  //   const value = (event.target as HTMLInputElement).value;
-  //   this.serachTerms$.next(value);
-  // }
-
-  private buttonClick$ = new Subject<void>();
+  serachTerms$ = new Subject<string>();
 
   constructor() {
-    this.buttonClick$
+    this.serachTerms$
       .pipe(
-        exhaustMap(() => {
-          console.log('Starting fake login call...');
-          return of('Login success').pipe(delay(2000));
+        // debounceTime(300),
+        // distinctUntilChanged(),
+        switchMap((term) => {
+          console.log('Starting fake API call for:', term);
+          const randomDelay = Math.floor(Math.random() * 1500) + 200; // random 200-1700ms
+          return of(`Result for "${term}"`).pipe(delay(randomDelay));
         }),
       )
-      .subscribe((result) => console.log('GOT:', result));
+      .subscribe((result) => console.log('Got:', result));
   }
 
-  onClick() {
-    this.buttonClick$.next();
+  onType(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.serachTerms$.next(value);
   }
+
+  // private buttonClick$ = new Subject<void>();
+
+  // constructor() {
+  //   this.buttonClick$
+  //     .pipe(
+  //       exhaustMap(() => {
+  //         console.log('Starting fake login call...');
+  //         return of('Login success').pipe(delay(2000));
+  //       }),
+  //     )
+  //     .subscribe((result) => console.log('GOT:', result));
+  // }
+
+  // onClick() {
+  //   this.buttonClick$.next();
+  // }
 
   // testMapAndTap() {
   //   of(1, 2, 3)
