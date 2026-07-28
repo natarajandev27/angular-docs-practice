@@ -6,7 +6,8 @@ import { ParentDemoComponent } from './features/components/parent-demo/parent-de
 import { CustomCardComponent } from './features/components/custom-card/custom-card.component';
 import { SignalsDemoComponent } from './features/signals/signals-demo/signals-demo.component';
 import { BindingDemoComponent } from './features/templates/binding-demo/binding-demo.component';
-import { ObservablesBasicComponent } from './features/observables/observables-basic/observables-basic.component';
+import { ObservablesBasicComponent } from './features/rxjs/observables-basic/observables-basic.component';
+import { OperatorsComponent } from './features/rxjs/operators/operators.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ import { ObservablesBasicComponent } from './features/observables/observables-ba
     // ParentDemoComponent,
     // SignalsDemoComponent,
     // BindingDemoComponent,
-    ObservablesBasicComponent,
+    // ObservablesBasicComponent,
+    OperatorsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
