@@ -18,10 +18,12 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
+import { HeaderComponent } from "../header/header.component";
+import { ProfileComponent } from "../profile/profile.component";
 
 @Component({
   selector: 'app-operators',
-  imports: [],
+  imports: [HeaderComponent, ProfileComponent],
   templateUrl: './operators.component.html',
   styleUrl: './operators.component.css',
 })
