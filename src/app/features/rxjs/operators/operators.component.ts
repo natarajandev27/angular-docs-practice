@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {
   AsyncSubject,
   BehaviorSubject,
+  catchError,
   combineLatest,
   concatMap,
   debounceTime,
@@ -12,14 +13,16 @@ import {
   map,
   merge,
   mergeMap,
+  Observable,
   of,
   ReplaySubject,
+  retry,
   Subject,
   switchMap,
   tap,
 } from 'rxjs';
-import { HeaderComponent } from "../header/header.component";
-import { ProfileComponent } from "../profile/profile.component";
+import { HeaderComponent } from '../header/header.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 @Component({
   selector: 'app-operators',
@@ -117,38 +120,56 @@ export class OperatorsComponent {
 
   // Subjects
   constructor() {
-    this.testSubjectTypes();
+    // this.testSubjectTypes();
+    this.testErrorHandling();
   }
 
-  testSubjectTypes() {
-    const plain$ = new Subject<number>();
-    plain$.next(1);
-    plain$.next(2);
-    console.log('--- Plain Subject: subscribing LATE ---');
-    plain$.subscribe((val) => console.log('Plain got:', val));
-    plain$.next(3);
+  // testSubjectTypes() {
+  //   const plain$ = new Subject<number>();
+  //   plain$.next(1);
+  //   plain$.next(2);
+  //   console.log('--- Plain Subject: subscribing LATE ---');
+  //   plain$.subscribe((val) => console.log('Plain got:', val));
+  //   plain$.next(3);
 
-    const behavior$ = new BehaviorSubject<number>(0);
-    behavior$.next(1);
-    behavior$.next(2);
-    console.log('--- BehaviorSubject Subject: subscribing LATE ---');
-    behavior$.subscribe((val) => console.log('BehaviorSubject got:', val));
-    behavior$.next(3);
+  //   const behavior$ = new BehaviorSubject<number>(0);
+  //   behavior$.next(1);
+  //   behavior$.next(2);
+  //   console.log('--- BehaviorSubject Subject: subscribing LATE ---');
+  //   behavior$.subscribe((val) => console.log('BehaviorSubject got:', val));
+  //   behavior$.next(3);
 
-    const replay$ = new ReplaySubject<number>(1);
-    replay$.next(1);
-    replay$.next(2);
-    replay$.next(3);
-    console.log('--- ReplaySubject Subject: subscribing LATE ---');
-    replay$.subscribe((val) => console.log('ReplaySubject got:', val));
+  //   const replay$ = new ReplaySubject<number>(1);
+  //   replay$.next(1);
+  //   replay$.next(2);
+  //   replay$.next(3);
+  //   console.log('--- ReplaySubject Subject: subscribing LATE ---');
+  //   replay$.subscribe((val) => console.log('ReplaySubject got:', val));
 
-    const async$ = new AsyncSubject<number>();
-    console.log('--- ReplaySubject Subject: subscribing LATE ---');
-    async$.subscribe((val) => console.log('Async got:', val));
-    async$.next(1);
-    async$.next(2);
-    async$.next(3);
-    console.log('--- Calling complete() now ---');
-    async$.complete();
+  //   const async$ = new AsyncSubject<number>();
+  //   console.log('--- ReplaySubject Subject: subscribing LATE ---');
+  //   async$.subscribe((val) => console.log('Async got:', val));
+  //   async$.next(1);
+  //   async$.next(2);
+  //   async$.next(3);
+  //   console.log('--- Calling complete() now ---');
+  //   async$.complete();
+  // }
+
+  testErrorHandling() {
+    const flaky$ = new Observable((subscriber) => {
+      console.log('Attempting call...');
+      subscriber.error('Simulated  network failure');
+    });
+
+    flaky$
+      .pipe(
+        retry(2),
+        catchError((err) => {
+          console.log('Final catch:', err);
+          return of('Fallback data');
+        }),
+      )
+      .subscribe((result) => console.log('GOT:', result));
   }
 }
